@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../model/weather_model.dart';
+import '../models/weather_model.dart';
 
 class WeatherService {
   static const String baseUrl = 'https://api.openweathermap.org/data/2.5';

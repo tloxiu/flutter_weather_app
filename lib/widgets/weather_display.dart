@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/weather_model.dart';
+import '../models/weather_model.dart';
 import '../constants/app_styles.dart';
 import '../utils/weather_utils.dart';
 import 'weather_info_card.dart';
@@ -43,7 +43,6 @@ class WeatherDisplay extends StatelessWidget {
                 value: WeatherUtils.formatPercentage(weather.humidity.toDouble()),
                 icon: Icons.water_drop,
               ),
-              // Informacja o deszczu (przeliczone z mm na %)
               WeatherInfoCard(
                 label: 'Rain',
                 value: WeatherUtils.formatPercentage(

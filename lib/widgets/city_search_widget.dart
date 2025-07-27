@@ -39,48 +39,57 @@ class CitySearchWidget extends StatelessWidget {
               child: TextField(
                 controller: cityController,
                 enabled: !isLoading,
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
                   labelText: 'Enter city name',
+                  labelStyle: const TextStyle(color: Colors.black),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(
                       isLoading ? AppStyles.buttonBorderRadius : AppStyles.inputBorderRadius,
                     ),
                   ),
-                  prefixIcon: Icon(
-                    Icons.location_city,
-                    color: isLoading ? AppStyles.hintColor : AppStyles.primaryColor,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(AppStyles.inputBorderRadius),
+                    borderSide: const BorderSide(color: Colors.black, width: 2.0),
                   ),
                   filled: true,
                   fillColor: isLoading ? Colors.grey[100] : AppStyles.backgroundColor,
                 ),
                 onSubmitted: (_) => onGetWeather(),
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
                 style: AppStyles.inputStyle,
               ),
             ),
             const SizedBox(height: 30),
-            AnimatedSwitcher(
-              duration: AppStyles.switcherAnimationDuration,
-              child: isLoading
-                  ? const CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(AppStyles.primaryColor),
-                    )
-                  : ElevatedButton(
-                      onPressed: onGetWeather,
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppStyles.primaryColor,
-                        foregroundColor: AppStyles.backgroundColor,
-                        padding: AppStyles.buttonPadding,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppStyles.buttonBorderRadius),
+            SizedBox(
+              height: 50, // Stała wysokość dla przycisku/indicatora
+              child: AnimatedSwitcher(
+                duration: AppStyles.switcherAnimationDuration,
+                child: isLoading
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(AppStyles.primaryColor),
                         ),
-                        elevation: 5,
+                      )
+                    : ElevatedButton(
+                        onPressed: onGetWeather,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppStyles.primaryColor,
+                          foregroundColor: AppStyles.backgroundColor,
+                          padding: AppStyles.buttonPadding,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(AppStyles.buttonBorderRadius),
+                          ),
+                          elevation: 5,
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Check Weather',
+                            style: AppStyles.buttonStyle,
+                          ),
+                        ),
                       ),
-                      child: const Text(
-                        'Check Weather',
-                        style: AppStyles.buttonStyle,
-                      ),
-                    ),
+              ),
             ),
           ],
         ),
