@@ -148,37 +148,6 @@ dev_dependencies:
 - Animation duration constants
 - Shadow and border radius settings
 
-## 🎯 Current Version Features
-
-- [x] City weather search
-- [x] Real-time weather data
-- [x] Smooth fade animations
-- [x] Responsive design
-- [x] Error handling
-- [x] Clean architecture
-- [x] Professional code structure
-- [x] Unit conversions (wind speed, rain percentage)
-- [x] Centralized styling and utilities
-
-## 🚧 Planned Enhancements
-
-- [ ] 5-day weather forecast
-- [ ] Geolocation support
-- [ ] Favorite cities list
-- [ ] Dark/light theme toggle
-- [ ] Weather notifications
-- [ ] Offline caching
-- [ ] Unit preferences (°C/°F)
-- [ ] Multiple language support
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
