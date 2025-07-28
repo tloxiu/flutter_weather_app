@@ -2,6 +2,7 @@ class WeatherModel {
   final String city;
   final String description;
   final String imageUrl;
+  final String iconCode;
   final double windSpeed;
   final double rain;
   final int humidity;
@@ -11,6 +12,7 @@ class WeatherModel {
     required this.city,
     required this.description,
     required this.imageUrl,
+    required this.iconCode,
     required this.windSpeed,
     required this.rain,
     required this.humidity,
@@ -23,6 +25,7 @@ class WeatherModel {
       description: json['weather'][0]['description'],
       imageUrl:
           'https://openweathermap.org/img/wn/${json['weather'][0]['icon']}@2x.png',
+      iconCode: json['weather'][0]['icon'],
       windSpeed: (json['wind']['speed'] as num).toDouble(),
       rain: json['rain'] != null
           ? (json['rain']['1h'] as num?)?.toDouble() ?? 0.0

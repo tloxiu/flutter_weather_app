@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import '../models/weather_model.dart';
 import '../constants/app_styles.dart';
 import '../utils/weather_utils.dart';
@@ -20,6 +21,14 @@ class WeatherDisplay extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // Animacja Lottie pogody
+          Lottie.asset(
+            WeatherUtils.getWeatherAnimation(weather.iconCode),
+            width: 230,
+            height: 230,
+            fit: BoxFit.contain,
+          ),
+          const SizedBox(height: 20),
           Text(
             WeatherUtils.formatTemperature(weather.temperature),
             style: AppStyles.temperatureStyle,
