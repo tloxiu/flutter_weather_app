@@ -21,7 +21,6 @@ class WeatherDisplay extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Animacja Lottie pogody
           Lottie.asset(
             WeatherUtils.getWeatherAnimation(weather.iconCode),
             width: 230,

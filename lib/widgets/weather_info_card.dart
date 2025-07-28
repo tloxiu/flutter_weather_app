@@ -16,30 +16,25 @@ class WeatherInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: AppStyles.weatherInfoWidth,
       height: AppStyles.weatherInfoHeight,
-      decoration: BoxDecoration(
-        color: AppStyles.backgroundColor,
-        borderRadius: BorderRadius.circular(AppStyles.cardBorderRadius),
-        boxShadow: AppStyles.cardShadow,
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
             icon,
-            color: AppStyles.primaryColor,
+            color: AppStyles.primaryColor.withValues(alpha: 0.7),
             size: AppStyles.weatherIconSize,
           ),
           const SizedBox(height: 6),
           Text(
             label,
-            style: AppStyles.labelStyle,
+            style: AppStyles.labelStyle.copyWith(color: Colors.black54),
           ),
           Text(
             value,
-            style: AppStyles.valueStyle,
+            style: AppStyles.valueStyle.copyWith(color: Colors.black87),
           ),
         ],
       ),
