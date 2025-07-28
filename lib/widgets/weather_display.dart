@@ -70,7 +70,7 @@ class WeatherDisplay extends StatelessWidget {
           ),
         ),
         if (forecasts != null && forecasts!.isNotEmpty) ...[
-          const SizedBox(height: 30),
+          const SizedBox(height: 10),
           HourlyForecastWidget(forecasts: forecasts!),
         ],
       ],
