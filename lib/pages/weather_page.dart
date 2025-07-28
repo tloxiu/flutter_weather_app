@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/weather_service.dart';
+import '../services/forecast_service.dart';
 import '../models/weather_model.dart';
+import '../models/forecast_model.dart';
 import '../widgets/city_search_widget.dart';
 import '../widgets/weather_display.dart';
 import '../widgets/weather_app_bar.dart';
@@ -19,6 +21,7 @@ class _WeatherPageState extends State<WeatherPage>
   final TextEditingController _cityController = TextEditingController();
   final WeatherService _weatherService = WeatherService();
   WeatherModel? _weather;
+  List<ForecastItem>? _forecasts;
   bool _isLoading = false;
   late AnimationController _fadeController;
   late Animation<double> _fadeAnimation;
@@ -50,15 +53,20 @@ class _WeatherPageState extends State<WeatherPage>
       _isLoading = true;
     });
 
-    final weather = await _weatherService.getWeatherByCity(
-      _cityController.text,
-    );
+    final results = await Future.wait([
+      _weatherService.getWeatherByCity(_cityController.text),
+      ForecastService.getForecast(_cityController.text),
+    ]);
+
+    final weather = results[0] as WeatherModel?;
+    final forecast = results[1] as ForecastModel?;
 
     if (weather != null) {
       await _fadeController.reverse();
 
       setState(() {
         _weather = weather;
+        _forecasts = forecast?.items;
         _isLoading = false;
       });
 
@@ -75,6 +83,7 @@ class _WeatherPageState extends State<WeatherPage>
 
     setState(() {
       _weather = null;
+      _forecasts = null;
       _cityController.clear();
     });
 
@@ -99,7 +108,10 @@ class _WeatherPageState extends State<WeatherPage>
                 isLoading: _isLoading,
                 onGetWeather: _getWeather,
               )
-            : WeatherDisplay(weather: _weather!),
+            : WeatherDisplay(
+                weather: _weather!,
+                forecasts: _forecasts,
+              ),
       ),
     );
   }
