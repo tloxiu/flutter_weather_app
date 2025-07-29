@@ -18,7 +18,7 @@ class DailyForecastPage extends StatelessWidget {
     final tomorrowStart = DateTime(tomorrow.year, tomorrow.month, tomorrow.day);
 
     for (var forecast in forecasts) {
-      // Only include forecasts from tomorrow onwards
+      // only include forecasts from tomorrow onwards
       if (forecast.dateTime.isBefore(tomorrowStart)) continue;
 
       String dayKey =
@@ -54,9 +54,14 @@ class DailyForecastPage extends StatelessWidget {
         maxTemperature: maxTemp,
         iconCode: mostCommonIcon,
         description: dayForecasts.first.description,
-        windSpeed: dayForecasts.map((f) => f.windSpeed).reduce((a, b) => a + b) / dayForecasts.length,
+        windSpeed:
+            dayForecasts.map((f) => f.windSpeed).reduce((a, b) => a + b) /
+            dayForecasts.length,
         rain: dayForecasts.map((f) => f.rain).reduce((a, b) => a + b),
-        humidity: (dayForecasts.map((f) => f.humidity).reduce((a, b) => a + b) / dayForecasts.length).round(),
+        humidity:
+            (dayForecasts.map((f) => f.humidity).reduce((a, b) => a + b) /
+                    dayForecasts.length)
+                .round(),
       );
     });
 
@@ -109,14 +114,12 @@ class DailyForecastPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // Tomorrow - main large card
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(24),
               margin: const EdgeInsets.only(bottom: 30),
               child: Row(
                 children: [
-                  // Weather icon on the left
                   Lottie.asset(
                     WeatherUtils.getWeatherAnimation(tomorrowForecast.iconCode),
                     width: 160,
@@ -125,7 +128,6 @@ class DailyForecastPage extends StatelessWidget {
                     repeat: false,
                   ),
                   const SizedBox(width: 30),
-                  // Information column on the right
                   Flexible(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -185,7 +187,6 @@ class DailyForecastPage extends StatelessWidget {
                 ],
               ),
             ),
-            // Weather info cards for tomorrow
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -195,7 +196,9 @@ class DailyForecastPage extends StatelessWidget {
                   Flexible(
                     child: WeatherInfoCard(
                       label: 'Wind',
-                      value: WeatherUtils.convertWindSpeed(tomorrowForecast.windSpeed),
+                      value: WeatherUtils.convertWindSpeed(
+                        tomorrowForecast.windSpeed,
+                      ),
                       icon: Icons.air,
                     ),
                   ),
@@ -223,7 +226,6 @@ class DailyForecastPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            // Remaining days - smaller list
             ...remainingDays.map((dayKey) {
               final dailyForecast = dailyForecasts[dayKey]!;
               return Container(
@@ -231,7 +233,6 @@ class DailyForecastPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16),
                 child: Row(
                   children: [
-                    // Day name
                     Expanded(
                       flex: 2,
                       child: Text(
@@ -243,7 +244,6 @@ class DailyForecastPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // Weather icon
                     Expanded(
                       flex: 1,
                       child: Lottie.asset(
@@ -256,7 +256,6 @@ class DailyForecastPage extends StatelessWidget {
                         repeat: false,
                       ),
                     ),
-                    // Description
                     Expanded(
                       flex: 2,
                       child: Text(
@@ -268,7 +267,6 @@ class DailyForecastPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    // Temperature range
                     Expanded(
                       flex: 2,
                       child: Row(
@@ -300,7 +298,7 @@ class DailyForecastPage extends StatelessWidget {
                   ],
                 ),
               );
-            }).toList(),
+            }),
           ],
         ),
       ),

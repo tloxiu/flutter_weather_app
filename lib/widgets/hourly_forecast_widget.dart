@@ -31,7 +31,8 @@ class HourlyForecastWidget extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DailyForecastPage(forecasts: forecasts),
+                      builder: (context) =>
+                          DailyForecastPage(forecasts: forecasts),
                     ),
                   );
                 },
@@ -66,10 +67,7 @@ class HourlyForecastWidget extends StatelessWidget {
             itemCount: forecasts.length > 8 ? 8 : forecasts.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.only(
-                  left: index == 0 ? 20 : 0, // only first item has left margin
-                  right: 12, // right margin
-                ),
+                padding: EdgeInsets.only(left: index == 0 ? 20 : 0, right: 12),
                 child: ForecastItemWidget(item: forecasts[index]),
               );
             },
