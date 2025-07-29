@@ -1,6 +1,10 @@
-# Weather App 🌤️
+# Weather App- **Modern Navigation**:---
 
-A modern, responsive Flutter weather application with elegant animations, 5-day forecasts, and professional architecture.
+## 🏗️ Architecturesitions and intuitive user flow
+
+## 📸 Screenshots
+
+<div align="center">A modern, responsive Flutter weather application with elegant animations, 5-day forecasts, and professional architecture.
 
 ## ✨ Features
 
@@ -13,7 +17,7 @@ A modern, responsive Flutter weather application with elegant animations, 5-day 
 - **Clean Architecture**: Well-organized code structure with separation of concerns
 - **Modern Navigation**: Smooth page transitions and intuitive user flow
 
-## 📸 Screenshots
+## � Screenshots
 
 <div align="center">
   <h3>🔍 Search Screen</h3>
@@ -34,6 +38,20 @@ A modern, responsive Flutter weather application with elegant animations, 5-day 
 </div>
 
 ---
+
+## �📱 App Screens
+
+### 🔍 Search Screen
+- **Minimalist Design**: Clean "Weather" title with centered input
+- **Underline Input**: Simple text field with subtle focus animations  
+- **Responsive**: Optimized for all screen sizes
+
+### 🌤️ Main Weather Screen
+- **Large Lottie Animation**: Dynamic weather animation (230x230px)
+- **Temperature Display**: Prominent temperature with weather description
+- **Info Cards**: Wind speed, humidity, and rain percentage in card layout
+- **3-Hour Forecast**: Horizontal scrolling "Next Hours" with 8 forecast items
+- **Clean Layout**: No borders, optimized spacing, professional appearance
 
 ## 🏗️ Architecture
 
@@ -162,6 +180,7 @@ dev_dependencies:
 3. **Main View**: Current weather + 3-hour forecast with "5 days" button  
 4. **5-Day Forecast**: Tomorrow highlight + 4 additional days list
 5. **Return**: Back button to main weather screen
+
 
 ## 👏 Acknowledgments
 
