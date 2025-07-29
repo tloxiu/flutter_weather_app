@@ -22,74 +22,75 @@ class CitySearchWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.wb_sunny,
-              size: AppStyles.logoIconSize,
-              color: AppStyles.accentColor,
-            ),
-            const SizedBox(height: 30),
             const Text(
-              'Weather App',
-              style: AppStyles.titleStyle,
-            ),
-            const SizedBox(height: 50),
-            AnimatedContainer(
-              duration: AppStyles.containerAnimationDuration,
-              curve: Curves.easeInOut,
-              child: TextField(
-                controller: cityController,
-                enabled: !isLoading,
-                cursorColor: Colors.black,
-                decoration: InputDecoration(
-                  labelText: 'Enter city name',
-                  labelStyle: const TextStyle(color: Colors.black),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      isLoading ? AppStyles.buttonBorderRadius : AppStyles.inputBorderRadius,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(AppStyles.inputBorderRadius),
-                    borderSide: const BorderSide(color: Colors.black, width: 2.0),
-                  ),
-                  filled: true,
-                  fillColor: isLoading ? Colors.grey[100] : AppStyles.backgroundColor,
-                ),
-                onSubmitted: (_) => onGetWeather(),
-                textAlign: TextAlign.start,
-                style: AppStyles.inputStyle,
+              'Weather',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+                letterSpacing: 2.0,
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 60),
+            TextField(
+              controller: cityController,
+              enabled: !isLoading,
+              cursorColor: Colors.black87,
+              decoration: InputDecoration(
+                hintText: 'Enter city name',
+                hintStyle: TextStyle(color: Colors.grey[400], fontSize: 16),
+                border: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey[300]!),
+                ),
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black87, width: 2.0),
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey[300]!),
+                ),
+              ),
+              onSubmitted: (_) => onGetWeather(),
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 18,
+                color: Colors.black87,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            const SizedBox(height: 40),
             SizedBox(
-              height: 50, // Stała wysokość dla przycisku/indicatora
-              child: AnimatedSwitcher(
-                duration: AppStyles.switcherAnimationDuration,
-                child: isLoading
-                    ? const Center(
+              height: 48,
+              child: isLoading
+                  ? const Center(
+                      child: SizedBox(
+                        width: 20,
+                        height: 20,
                         child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(AppStyles.primaryColor),
-                        ),
-                      )
-                    : ElevatedButton(
-                        onPressed: onGetWeather,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppStyles.primaryColor,
-                          foregroundColor: AppStyles.backgroundColor,
-                          padding: AppStyles.buttonPadding,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppStyles.buttonBorderRadius),
-                          ),
-                          elevation: 5,
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Check Weather',
-                            style: AppStyles.buttonStyle,
+                          strokeWidth: 2,
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Colors.black87,
                           ),
                         ),
                       ),
-              ),
+                    )
+                  : TextButton(
+                      onPressed: onGetWeather,
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 12,
+                        ),
+                      ),
+                      child: const Text(
+                        'Get Weather',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1.0,
+                        ),
+                      ),
+                    ),
             ),
           ],
         ),

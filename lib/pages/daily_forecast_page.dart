@@ -253,6 +253,7 @@ class DailyForecastPage extends StatelessWidget {
                         width: 50,
                         height: 50,
                         fit: BoxFit.contain,
+                        repeat: false,
                       ),
                     ),
                     // Description

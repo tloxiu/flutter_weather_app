@@ -29,7 +29,7 @@ class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
               size: AppStyles.appBarIconSize,
             ),
             const SizedBox(width: 5),
-            Text(cityName),
+            Text(cityName, style: TextStyle(fontWeight: FontWeight.w500)),
           ],
         ),
         centerTitle: true,
@@ -57,4 +57,3 @@ class WeatherAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
- 
