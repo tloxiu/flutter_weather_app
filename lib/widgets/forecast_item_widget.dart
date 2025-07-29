@@ -34,6 +34,7 @@ class ForecastItemWidget extends StatelessWidget {
             width: 40,
             height: 40,
             fit: BoxFit.contain,
+            repeat: false,
           ),
           Text(
             _formatTime(item.dateTime),
