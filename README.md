@@ -163,7 +163,39 @@ dev_dependencies:
 4. **5-Day Forecast**: Tomorrow highlight + 4 additional days list
 5. **Return**: Back button to main weather screen
 
-## 👏 Acknowledgments
+## � Future Features & Roadmap
+
+### 🔮 Planned Updates
+
+#### 📍 **Location Services (v3.0)**
+- **GPS Detection**: Automatic current location weather
+- **Location Permission**: Smart permission handling with fallback
+- **Nearby Cities**: Quick access to weather in surrounding areas
+- **Location History**: Recently searched locations with quick access
+
+#### 🌈 **Enhanced UI/UX (v3.1)**
+- **Dark/Light Theme**: System-aware theme switching
+- **Responsive Design**: Optimized layouts for tablets and landscape mode
+- **Accessibility**: Screen reader support and larger text options
+
+#### 🔔 **Smart Notifications (v3.2)**
+- **Weather Alerts**: Severe weather warnings and notifications
+- **Daily Briefing**: Morning weather summary push notifications
+- **Rain Alerts**: "Take an umbrella" notifications based on forecast
+- **Custom Alerts**: User-defined temperature or condition triggers
+
+#### 🏠 **Smart Features (v3.4)**
+- **Widgets**: Home screen weather widgets for quick glances
+
+### 🛠️ **Technical Improvements**
+
+- **Offline Mode**: Cached weather data when internet is unavailable
+
+---
+
+*Have ideas for new features? Open an issue on GitHub! 🌟*
+
+## �👏 Acknowledgments
 
 - [OpenWeatherMap](https://openweathermap.org/) for comprehensive weather data API
 - [LottieFiles](https://lottiefiles.com/) community for weather animation inspiration
@@ -173,8 +205,8 @@ dev_dependencies:
 ---
 
 **Repository**: [flutter_weather_app](https://github.com/tloxiu/flutter_weather_app)  
-**Version**: 2.0.0  
+**Version**: 2.0.0 → 3.5.0 (planned)  
 **Flutter**: 3.x  
 **Dart**: 3.x  
 
-Made with ❤️
+Made with ❤️ and continuous innovation
